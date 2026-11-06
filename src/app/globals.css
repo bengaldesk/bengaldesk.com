@@ -1,0 +1,92 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif-bn: var(--font-noto-serif-bengali), Georgia, serif;
+  --font-sans-bn: var(--font-hind-siliguri), -apple-system, sans-serif;
+  --font-sans-en: var(--font-inter), -apple-system, sans-serif;
+  --font-anek-bn: var(--font-anek-bangla), -apple-system, sans-serif;
+
+  --color-brand-blue: #052962;
+  --color-brand-navy: #031c44;
+  --color-brand-blue-hover: #073a8a;
+  --color-brand-red: #c00000;
+  --color-brand-darkred: #990000;
+  --color-brand-ink: #111827;
+  --color-brand-charcoal: #1f2937;
+  --color-brand-gray: #4b5563;
+  --color-brand-lightgray: #9ca3af;
+  --color-brand-border: #e5e7eb;
+  --color-brand-softbg: #f8fafc;
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #111827;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Hide scrollbar utility for clean horizontal navigation */
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
+}
+
+/* Custom newspaper typography utility classes */
+.bn-headline {
+  font-family: var(--font-noto-serif-bengali), Georgia, serif;
+  line-height: 1.32;
+  letter-spacing: -0.015em;
+}
+
+.bn-sublead {
+  font-family: var(--font-noto-serif-bengali), Georgia, serif;
+  line-height: 1.38;
+}
+
+.bn-body {
+  font-family: var(--font-hind-siliguri), -apple-system, sans-serif;
+  line-height: 1.82;
+  letter-spacing: 0.005em;
+}
+
+.bn-ui {
+  font-family: var(--font-hind-siliguri), -apple-system, sans-serif;
+  line-height: 1.5;
+}
+
+.bn-badge {
+  font-family: var(--font-anek-bangla), -apple-system, sans-serif;
+}
+
+.en-headline {
+  font-family: var(--font-inter), -apple-system, sans-serif;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+  font-weight: 700;
+}
+
+.en-body {
+  font-family: var(--font-inter), -apple-system, sans-serif;
+  line-height: 1.65;
+}
+
+/* Newspaper column divider */
+.news-divider-r {
+  border-right: 1px solid var(--color-brand-border);
+}
+
+.news-divider-b {
+  border-bottom: 1px solid var(--color-brand-border);
+}
