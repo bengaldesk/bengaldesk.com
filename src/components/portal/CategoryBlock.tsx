@@ -15,6 +15,7 @@ interface CategoryBlockProps {
   currentLang: Language;
   onSelectArticle: (article: Article) => void;
   onViewCategory: (slug: CategorySlug) => void;
+  variant?: 'full' | 'compact';
 }
 
 export const CategoryBlock: React.FC<CategoryBlockProps> = ({
@@ -23,6 +24,7 @@ export const CategoryBlock: React.FC<CategoryBlockProps> = ({
   currentLang,
   onSelectArticle,
   onViewCategory,
+  variant = 'full',
 }) => {
   const isBn = currentLang === 'bn';
   const categoryInfo = categories.find((c) => c.slug === categorySlug);
@@ -36,8 +38,106 @@ export const CategoryBlock: React.FC<CategoryBlockProps> = ({
   if (categoryArticles.length === 0) return null;
 
   const leadArticle = categoryArticles[0];
-  const sideArticles = categoryArticles.slice(1, 4);
+  const sideArticles = categoryArticles.slice(1, variant === 'compact' ? 3 : 4);
 
+  // Compact Variant (Used for Dual-Column Side-by-Side Category Blocks)
+  if (variant === 'compact') {
+    return (
+      <section className="py-4 sm:py-5 border-b border-gray-200">
+        {/* Header */}
+        <div className="flex items-center justify-between pb-1.5 mb-3 border-b-2 border-[#052962]">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-4 sm:h-5 bg-[#052962] inline-block rounded-2xs"></span>
+            <h3
+              className={`text-base sm:text-lg md:text-xl font-bold text-gray-900 ${
+                isBn ? 'bn-headline' : 'en-headline'
+              }`}
+            >
+              {categoryName}
+            </h3>
+          </div>
+          <button
+            type="button"
+            onClick={() => onViewCategory(categorySlug)}
+            className="text-xs font-semibold text-gray-500 hover:text-[#052962] flex items-center gap-0.5 transition-colors cursor-pointer"
+          >
+            <span>{isBn ? 'আরও' : 'More'}</span>
+            <ChevronRight className="w-3.5 h-3.5 text-[#052962]" />
+          </button>
+        </div>
+
+        {/* Compact Lead */}
+        <article
+          onClick={() => onSelectArticle(leadArticle)}
+          className="cursor-pointer group mb-3.5 active:opacity-90"
+        >
+          <div className="relative overflow-hidden rounded-xs bg-gray-100 aspect-16/10 mb-2 shadow-2xs">
+            <img
+              src={leadArticle.featuredImage?.url || FALLBACK_SVG}
+              alt={leadArticle.title}
+              onError={(e) => {
+                e.currentTarget.onerror = null;
+                e.currentTarget.src = FALLBACK_SVG;
+              }}
+              className="w-full h-full object-cover"
+            />
+          </div>
+          <h4
+            className={`text-sm sm:text-base font-bold text-gray-950 group-hover:text-[#052962] transition-colors mb-1 line-clamp-2 ${
+              isBn ? 'bn-headline' : 'en-headline'
+            }`}
+          >
+            {leadArticle.title}
+          </h4>
+          <p className={`text-gray-600 text-xs line-clamp-2 mb-1.5 ${isBn ? 'bn-body' : 'en-body'}`}>
+            {leadArticle.excerpt}
+          </p>
+          <span suppressHydrationWarning className="text-[10px] text-gray-400 flex items-center gap-1">
+            <Clock className="w-3 h-3" />
+            {formatTimeAgo(leadArticle.publishedAt, currentLang)}
+          </span>
+        </article>
+
+        {/* Compact Sub-items */}
+        <div className="space-y-2.5 divide-y divide-gray-100 pt-1">
+          {sideArticles.map((item) => (
+            <article
+              key={item.id}
+              onClick={() => onSelectArticle(item)}
+              className="pt-2 cursor-pointer group flex items-start gap-2.5 justify-between"
+            >
+              <div className="flex-1">
+                <h5
+                  className={`text-xs sm:text-sm font-semibold text-gray-900 group-hover:text-[#052962] transition-colors line-clamp-2 ${
+                    isBn ? 'bn-sublead' : 'en-headline'
+                  }`}
+                >
+                  {item.title}
+                </h5>
+                <span suppressHydrationWarning className="text-[10px] text-gray-400 flex items-center gap-1 mt-0.5">
+                  <Clock className="w-3 h-3" />
+                  {formatTimeAgo(item.publishedAt, currentLang)}
+                </span>
+              </div>
+              <div className="w-16 h-12 sm:w-18 sm:h-13 shrink-0 overflow-hidden rounded-xs bg-gray-100">
+                <img
+                  src={item.featuredImage?.url || FALLBACK_SVG}
+                  alt={item.title}
+                  onError={(e) => {
+                    e.currentTarget.onerror = null;
+                    e.currentTarget.src = FALLBACK_SVG;
+                  }}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    );
+  }
+
+  // Full Variant (1 Large Lead 7 cols + 3 Sides 5 cols)
   return (
     <section className="py-5 sm:py-6 border-b border-gray-200">
       {/* Category Section Header (Prothom Alo signature ribbon in Brand Color) */}
