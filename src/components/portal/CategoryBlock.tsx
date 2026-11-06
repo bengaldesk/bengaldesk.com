@@ -99,27 +99,27 @@ export const CategoryBlock: React.FC<CategoryBlockProps> = ({
         </article>
 
         {/* Compact Sub-items */}
-        <div className="space-y-2.5 divide-y divide-gray-100 pt-1">
+        <div className="space-y-3 divide-y divide-gray-150 pt-1">
           {sideArticles.map((item) => (
             <article
               key={item.id}
               onClick={() => onSelectArticle(item)}
-              className="pt-2 cursor-pointer group flex items-start gap-2.5 justify-between"
+              className="pt-2.5 cursor-pointer group flex items-start gap-3 justify-between active:bg-gray-50 transition-colors"
             >
-              <div className="flex-1">
+              <div className="flex-1 min-w-0">
                 <h5
-                  className={`text-xs sm:text-sm font-semibold text-gray-900 group-hover:text-[#052962] transition-colors line-clamp-2 ${
+                  className={`text-xs sm:text-sm font-bold text-gray-900 group-hover:text-[#052962] transition-colors line-clamp-2 leading-snug mb-1 ${
                     isBn ? 'bn-sublead' : 'en-headline'
                   }`}
                 >
                   {item.title}
                 </h5>
-                <span suppressHydrationWarning className="text-[10px] text-gray-400 flex items-center gap-1 mt-0.5">
+                <span suppressHydrationWarning className="text-[10px] sm:text-[11px] text-gray-400 flex items-center gap-1">
                   <Clock className="w-3 h-3" />
                   {formatTimeAgo(item.publishedAt, currentLang)}
                 </span>
               </div>
-              <div className="w-16 h-12 sm:w-18 sm:h-13 shrink-0 overflow-hidden rounded-md sm:rounded-lg bg-gray-100 shadow-2xs">
+              <div className="w-22 h-16 sm:w-26 sm:h-18 shrink-0 overflow-hidden rounded-lg bg-gray-100 shadow-2xs">
                 <img
                   src={item.featuredImage?.url || FALLBACK_SVG}
                   alt={item.title}
@@ -233,7 +233,7 @@ export const CategoryBlock: React.FC<CategoryBlockProps> = ({
                     {formatTimeAgo(item.publishedAt, currentLang)}
                   </span>
                 </div>
-                <div className="w-22 h-16 sm:w-26 sm:h-18 shrink-0 overflow-hidden rounded-lg sm:rounded-xl bg-gray-100 shadow-2xs">
+                <div className="w-24 h-16 sm:w-28 sm:h-20 shrink-0 overflow-hidden rounded-lg sm:rounded-xl bg-gray-100 shadow-2xs">
                   <img
                     src={item.featuredImage?.url || FALLBACK_SVG}
                     alt={item.title}
