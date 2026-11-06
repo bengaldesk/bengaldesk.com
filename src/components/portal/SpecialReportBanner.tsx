@@ -3,7 +3,8 @@
 import React from 'react';
 import { Article, Language } from '@/types/news';
 import { formatTimeAgo } from '@/lib/bangla-date';
-import { ShieldAlert, Clock, ArrowRight, Sparkles } from 'lucide-react';
+import { ShieldAlert, Clock, ArrowRight } from 'lucide-react';
+import { BrandLogo } from '@/components/portal/BrandLogo';
 
 interface SpecialReportBannerProps {
   articles: Article[];
@@ -31,13 +32,17 @@ export const SpecialReportBanner: React.FC<SpecialReportBannerProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Top Label */}
-        <div className="flex items-center justify-between pb-3 mb-4 sm:mb-6 border-b border-white/15">
-          <div className="flex items-center gap-2">
-            <span className="p-1 bg-amber-400/20 text-amber-300 rounded">
-              <Sparkles className="w-4 h-4 text-amber-300" />
-            </span>
+        <div className="flex flex-wrap items-center justify-between gap-3 pb-3 mb-4 sm:mb-6 border-b border-white/15">
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            <BrandLogo
+              variant="white"
+              className="w-32 sm:w-40 md:w-44 h-auto"
+              showTagline={false}
+              isBn={isBn}
+            />
+            <span className="text-white/30 text-sm font-light">|</span>
             <span className="text-xs sm:text-sm font-black uppercase tracking-wider text-amber-300">
-              {isBn ? 'দ্য বেঙ্গল ডেস্ক বিশেষ প্রতিবেদন' : 'The Bengal Desk In-Depth'}
+              {isBn ? 'বিশেষ প্রতিবেদন' : 'Special Report'}
             </span>
           </div>
           <span className="hidden sm:inline-flex items-center gap-1.5 text-xs text-blue-200">
