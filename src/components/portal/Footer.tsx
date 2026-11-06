@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Link from 'next/link';
 import { Language } from '@/types/news';
 import { categories } from '@/data/categories';
 import { FacebookIcon, TwitterIcon, YoutubeIcon, LinkedinIcon } from '@/components/icons/SocialIcons';
@@ -108,13 +109,16 @@ export const Footer: React.FC<FooterProps> = ({ currentLang }) => {
 
         </div>
 
-        {/* Bottom Legal / Disclaimer */}
+        {/* Bottom Legal, Policy & SEO Links */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-[11px] text-gray-500 gap-3">
-          <div className="flex flex-wrap gap-4">
-            <span className="hover:underline cursor-pointer">{isBn ? 'গোপনীয়তা নীতি' : 'Privacy Policy'}</span>
-            <span className="hover:underline cursor-pointer">{isBn ? 'ব্যবহারের শর্তাবলী' : 'Terms of Use'}</span>
-            <span className="hover:underline cursor-pointer">{isBn ? 'বিজ্ঞাপন দরপত্র' : 'Advertising'}</span>
-            <span className="hover:underline cursor-pointer">{isBn ? 'আর্কাইভ' : 'Archive'}</span>
+          <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
+            <Link href="/about" className="hover:text-white transition-colors">{isBn ? 'আমাদের সম্পর্কে' : 'About Us'}</Link>
+            <Link href="/editorial-policy" className="hover:text-white transition-colors">{isBn ? 'সম্পাদকীয় নীতিমালা' : 'Editorial Policy'}</Link>
+            <Link href="/privacy" className="hover:text-white transition-colors">{isBn ? 'গোপনীয়তা নীতি' : 'Privacy Policy'}</Link>
+            <Link href="/terms" className="hover:text-white transition-colors">{isBn ? 'ব্যবহারের শর্তাবলী' : 'Terms of Use'}</Link>
+            <Link href="/advertise" className="hover:text-white transition-colors">{isBn ? 'বিজ্ঞাপন' : 'Advertising'}</Link>
+            <Link href="/archive" className="hover:text-white transition-colors">{isBn ? 'আর্কাইভ' : 'Archive'}</Link>
+            <Link href="/contact" className="hover:text-white transition-colors">{isBn ? 'যোগাযোগ' : 'Contact Us'}</Link>
           </div>
           <p>
             {isBn ? 'ডিজাইন ও প্রযুক্তি: আধুনিক ক্লাউডফ্লেয়ার এজ ইঞ্জিন' : 'Powered by Cloudflare Edge Architecture'}
