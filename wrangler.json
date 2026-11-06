@@ -1,0 +1,28 @@
+{
+  "name": "bengaldesk",
+  "pages_build_output_dir": ".next",
+  "compatibility_date": "2024-11-01",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "bengaldesk-db",
+      "database_id": "43ceb0d0-7720-4817-b562-4fa4be405cdb"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "MEDIA_BUCKET",
+      "bucket_name": "bengaldesk-media"
+    }
+  ],
+  "vars": {
+    "NEXT_PUBLIC_SITE_URL": "https://bengaldesk.com",
+    "NEXT_PUBLIC_MEDIA_URL": "https://media.bengaldesk.com",
+    "R2_BUCKET_NAME": "bengaldesk-media",
+    "R2_ACCOUNT_ID": "c54dc287f17d5a532499cb4ce51e63a9",
+    "R2_ENDPOINT": "https://c54dc287f17d5a532499cb4ce51e63a9.r2.cloudflarestorage.com"
+  }
+}
