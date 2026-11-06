@@ -7,7 +7,7 @@ import { formatTimeAgo } from '@/lib/bangla-date';
 import { ChevronRight, Clock } from 'lucide-react';
 
 // Reliable SVG Data URI fallback that never fails even offline or if image 404s
-const FALLBACK_SVG = 'data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22500%22%20viewBox%3D%220%200%20800%20500%22%3E%3Crect%20fill%3D%22%23f3f4f6%22%20width%3D%22800%22%20height%3D%22500%22%2F%3E%3Ctext%20fill%3D%22%239ca3af%22%20font-family%3D%22sans-serif%22%20font-size%3D%2224%22%20font-weight%3D%22bold%22%20x%3D%2250%25%22%20y%3D%2250%25%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3E%E0%A6%A6%E0%A7%8D%E0%A6%AF%20%E0%A6%AC%E0%A7%87%E0%A6%99%E0%A7%8D%E0%A6%97%E0%A6%B2%20%E0%A6%A1%E0%A7%87%E0%A6% his%3C%2Ftext%3E%3C%2Fsvg%3E';
+const FALLBACK_SVG = 'data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22500%22%20viewBox%3D%220%200%20800%20500%22%3E%3Crect%20fill%3D%22%23052962%22%20width%3D%22800%22%20height%3D%22500%22%2F%3E%3Ctext%20fill%3D%22%23ffffff%22%20font-family%3D%22sans-serif%22%20font-size%3D%2226%22%20font-weight%3D%22bold%22%20x%3D%2250%25%22%20y%3D%2250%25%22%20text-anchor%3D%22middle%22%20dominant-baseline%3D%22middle%22%3E%E0%A6%A6%E0%A7%8D%E0%A6%AF%20%E0%A6%AC%E0%A7%87%E0%A6%99%E0%A7%8D%E0%A6%97%E0%A6%B2%20%E0%A6%A1%E0%A7%87%E0%A6%B8%E0%A7%8D%E0%A6%95%3C%2Ftext%3E%3C%2Fsvg%3E';
 
 interface CategoryBlockProps {
   categorySlug: CategorySlug;

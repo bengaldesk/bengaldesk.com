@@ -34,7 +34,16 @@ export const metadata: Metadata = {
   title: "দ্য বেঙ্গল ডেস্ক | The Bengal Desk",
   description: "বস্তুনিষ্ঠ, স্বাধীন ও নির্ভরযোগ্য সংবাদ মাধ্যম",
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/favicon-32x32.png", type: "image/png", sizes: "32x32" },
+      { url: "/icon.png", type: "image/png", sizes: "512x512" },
+    ],
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
   },
 };
 
