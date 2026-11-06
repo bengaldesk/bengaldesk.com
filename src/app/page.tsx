@@ -7,8 +7,6 @@ import { TopBar } from '@/components/portal/TopBar';
 import { Header } from '@/components/portal/Header';
 import { Navbar } from '@/components/portal/Navbar';
 import { Footer } from '@/components/portal/Footer';
-import { BreakingTicker } from '@/components/portal/BreakingTicker';
-import { TrendingBar } from '@/components/portal/TrendingBar';
 import { MainLeadSection } from '@/components/portal/MainLeadSection';
 import { CategoryBlock } from '@/components/portal/CategoryBlock';
 import { SpecialReportBanner } from '@/components/portal/SpecialReportBanner';
@@ -108,17 +106,7 @@ export default function HomePage() {
         onCloseMobileMenu={() => setIsMobileMenuOpen(false)}
       />
 
-      {/* 4. Breaking News Ticker */}
-      <BreakingTicker
-        articles={localizedArticles}
-        currentLang={currentLang}
-        onSelectArticle={handleSelectArticle}
-      />
-
-      {/* 4.1 Dedicated Trending Topics Bar (Prothom Alo Style) */}
-      <TrendingBar currentLang={currentLang} />
-
-      {/* 5. Main Body Content Area */}
+      {/* 4. Main Body Content Area */}
       <main className="flex-1">
         {selectedArticle ? (
           /* Single Article Reading View */
