@@ -52,7 +52,7 @@ export const SpecialReportBanner: React.FC<SpecialReportBannerProps> = ({
           className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-center cursor-pointer group"
         >
           {/* Image (7 cols) */}
-          <div className="lg:col-span-7 relative overflow-hidden rounded-md aspect-16/10 sm:aspect-16/9 bg-slate-800 shadow-xl border border-white/10">
+          <div className="lg:col-span-7 relative overflow-hidden rounded-xl sm:rounded-2xl aspect-16/10 sm:aspect-16/9 bg-slate-800 shadow-xl border border-white/10">
             <img
               src={specialArticle.featuredImage?.url}
               alt={specialArticle.title}

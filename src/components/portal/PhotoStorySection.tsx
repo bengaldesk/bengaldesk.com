@@ -90,7 +90,7 @@ export const PhotoStorySection: React.FC<PhotoStorySectionProps> = ({ currentLan
           {photoStories.map((photo) => (
             <div
               key={photo.id}
-              className="group relative rounded-sm overflow-hidden bg-gray-900 aspect-4/3 cursor-pointer shadow-xs"
+              className="group relative rounded-xl sm:rounded-2xl overflow-hidden bg-gray-900 aspect-4/3 cursor-pointer shadow-md"
             >
               <img
                 src={photo.imageUrl}

@@ -94,7 +94,7 @@ export const VideoGallerySection: React.FC<VideoGallerySectionProps> = ({ curren
           
           {/* Main Featured Video Player (7 cols) */}
           <div className="lg:col-span-7">
-            <div className="relative overflow-hidden rounded-md aspect-video bg-slate-900 border border-slate-800 group shadow-2xl">
+            <div className="relative overflow-hidden rounded-xl sm:rounded-2xl aspect-video bg-slate-900 border border-slate-800 group shadow-2xl">
               <img
                 src={activeVideo.thumbnailUrl}
                 alt={activeVideo.titleBn}
@@ -153,7 +153,7 @@ export const VideoGallerySection: React.FC<VideoGallerySectionProps> = ({ curren
                   }`}
                 >
                   {/* Thumbnail with mini play icon */}
-                  <div className="relative w-28 sm:w-32 aspect-16/10 rounded overflow-hidden shrink-0 bg-slate-800">
+                  <div className="relative w-28 sm:w-32 aspect-16/10 rounded-lg sm:rounded-xl overflow-hidden shrink-0 bg-slate-800">
                     <img
                       src={vid.thumbnailUrl}
                       alt={vid.titleBn}

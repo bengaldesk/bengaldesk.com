@@ -71,7 +71,7 @@ export const CategoryBlock: React.FC<CategoryBlockProps> = ({
           onClick={() => onSelectArticle(leadArticle)}
           className="cursor-pointer group mb-3.5 active:opacity-90"
         >
-          <div className="relative overflow-hidden rounded-xs bg-gray-100 aspect-16/10 mb-2 shadow-2xs">
+          <div className="relative overflow-hidden rounded-lg sm:rounded-xl bg-gray-100 aspect-16/10 mb-2 shadow-xs">
             <img
               src={leadArticle.featuredImage?.url || FALLBACK_SVG}
               alt={leadArticle.title}
@@ -119,7 +119,7 @@ export const CategoryBlock: React.FC<CategoryBlockProps> = ({
                   {formatTimeAgo(item.publishedAt, currentLang)}
                 </span>
               </div>
-              <div className="w-16 h-12 sm:w-18 sm:h-13 shrink-0 overflow-hidden rounded-xs bg-gray-100">
+              <div className="w-16 h-12 sm:w-18 sm:h-13 shrink-0 overflow-hidden rounded-md sm:rounded-lg bg-gray-100 shadow-2xs">
                 <img
                   src={item.featuredImage?.url || FALLBACK_SVG}
                   alt={item.title}
@@ -171,7 +171,7 @@ export const CategoryBlock: React.FC<CategoryBlockProps> = ({
           className="md:col-span-7 cursor-pointer group flex flex-col justify-between active:opacity-90"
         >
           <div>
-            <div className="relative overflow-hidden rounded-xs bg-gray-100 aspect-16/10 mb-2.5 shadow-2xs">
+            <div className="relative overflow-hidden rounded-xl sm:rounded-2xl bg-gray-100 aspect-16/10 mb-2.5 shadow-xs">
               <img
                 src={leadArticle.featuredImage?.url || FALLBACK_SVG}
                 alt={leadArticle.title}
@@ -233,7 +233,7 @@ export const CategoryBlock: React.FC<CategoryBlockProps> = ({
                     {formatTimeAgo(item.publishedAt, currentLang)}
                   </span>
                 </div>
-                <div className="w-22 h-16 sm:w-26 sm:h-18 shrink-0 overflow-hidden rounded-xs bg-gray-100 shadow-2xs">
+                <div className="w-22 h-16 sm:w-26 sm:h-18 shrink-0 overflow-hidden rounded-lg sm:rounded-xl bg-gray-100 shadow-2xs">
                   <img
                     src={item.featuredImage?.url || FALLBACK_SVG}
                     alt={item.title}

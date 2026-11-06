@@ -50,7 +50,7 @@ export const MainLeadSection: React.FC<MainLeadSectionProps> = ({
               className="cursor-pointer group flex flex-col h-full active:opacity-90"
             >
               {/* Lead Image with cinematic 16:9 ratio */}
-              <div className="relative overflow-hidden rounded-xs bg-gray-100 aspect-video mb-3 shadow-2xs">
+              <div className="relative overflow-hidden rounded-xl sm:rounded-2xl bg-gray-100 aspect-video mb-3 shadow-xs">
                 <img
                   src={mainLead.featuredImage.url}
                   alt={mainLead.title}
@@ -132,7 +132,7 @@ export const MainLeadSection: React.FC<MainLeadSectionProps> = ({
                 </div>
 
                 {/* Right (on Mobile) / Top (on Desktop): Thumbnail image */}
-                <div className="w-24 h-18 sm:w-28 sm:h-20 lg:w-full lg:h-auto lg:aspect-16/10 shrink-0 overflow-hidden rounded-xs bg-gray-100 order-2 lg:order-1 mb-0 lg:mb-2.5">
+                <div className="w-24 h-18 sm:w-28 sm:h-20 lg:w-full lg:h-auto lg:aspect-16/10 shrink-0 overflow-hidden rounded-lg sm:rounded-xl bg-gray-100 order-2 lg:order-1 mb-0 lg:mb-2.5 shadow-2xs">
                   <img
                     src={sub.featuredImage.url}
                     alt={sub.title}

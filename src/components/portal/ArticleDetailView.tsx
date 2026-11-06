@@ -255,7 +255,7 @@ export const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({
 
       {/* 7. Featured Image with Caption */}
       <figure className="mb-6 sm:mb-8">
-        <div className="relative overflow-hidden rounded-xs bg-gray-100 aspect-16/10 mb-2 shadow-2xs">
+        <div className="relative overflow-hidden rounded-xl sm:rounded-2xl bg-gray-100 aspect-16/10 mb-2 shadow-xs">
           <img
             src={article.featuredImage.url}
             alt={article.title}
@@ -315,7 +315,7 @@ export const ArticleDetailView: React.FC<ArticleDetailViewProps> = ({
               }}
               className="cursor-pointer group flex flex-row sm:flex-col items-start gap-3 sm:gap-0 pt-3 sm:pt-0"
             >
-              <div className="w-24 h-16 sm:w-full sm:h-auto sm:aspect-16/10 shrink-0 overflow-hidden rounded-xs bg-gray-100 mb-0 sm:mb-2 shadow-2xs">
+              <div className="w-24 h-16 sm:w-full sm:h-auto sm:aspect-16/10 shrink-0 overflow-hidden rounded-lg sm:rounded-xl bg-gray-100 mb-0 sm:mb-2 shadow-2xs">
                 <img
                   src={rel.featuredImage.url}
                   alt={rel.title}

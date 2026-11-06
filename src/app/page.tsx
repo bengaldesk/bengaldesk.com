@@ -279,10 +279,10 @@ export default function HomePage() {
                   <article
                     key={art.id}
                     onClick={() => handleSelectArticle(art)}
-                    className="cursor-pointer group flex flex-col justify-between border border-gray-200 p-3 sm:p-4 rounded-xs hover:shadow-xs transition-shadow bg-white active:bg-gray-50"
+                    className="cursor-pointer group flex flex-col justify-between border border-gray-200 p-3 sm:p-4 rounded-xl hover:shadow-md transition-shadow bg-white active:bg-gray-50"
                   >
                     <div>
-                      <div className="relative overflow-hidden rounded-xs bg-gray-100 aspect-16/10 mb-2.5">
+                      <div className="relative overflow-hidden rounded-lg sm:rounded-xl bg-gray-100 aspect-16/10 mb-2.5 shadow-2xs">
                         <img
                           src={art.featuredImage?.url}
                           alt={art.title}
