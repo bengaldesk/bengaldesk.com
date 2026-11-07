@@ -2,6 +2,8 @@ import { MetadataRoute } from 'next';
 import { mockArticles } from '@/data/mock-news';
 import { categories } from '@/data/categories';
 
+export const dynamic = 'force-static';
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://bengaldesk.com';
 
