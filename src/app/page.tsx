@@ -95,6 +95,7 @@ export default function HomePage() {
           setSelectedArticle(null);
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }}
+        onOpenSearch={() => setIsSearchOpen(true)}
       />
 
       {/* 3. Sticky Navigation Mega-Menu */}

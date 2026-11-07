@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { getFormattedHeaderDate } from '@/lib/bangla-date';
 import { Language } from '@/types/news';
-import { Search, BookOpen, Sun } from 'lucide-react';
+import { Search, Sun, Globe } from 'lucide-react';
 
 interface TopBarProps {
   currentLang: Language;
@@ -24,58 +24,62 @@ export const TopBar: React.FC<TopBarProps> = ({
   }, [currentLang]);
 
   return (
-    <div className="border-b border-gray-200 bg-gray-50/70 text-xs text-gray-600 transition-colors">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1.5 flex flex-wrap items-center justify-between gap-2">
-        {/* Date & Edition */}
-        <div className="flex items-center gap-3">
-          <span className="font-medium text-gray-700 min-h-[16px]">{headerDate}</span>
-          <span className="hidden md:inline-block text-gray-300">|</span>
-          <span className="hidden md:inline-flex items-center gap-1 text-gray-500">
-            <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-            {isBn ? 'ঢাকা সংস্করণ' : 'Dhaka Edition'}
-          </span>
+    <div className="border-b border-gray-200 bg-gray-50/90 text-xs text-gray-800 transition-colors">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex flex-wrap items-center justify-between gap-2.5">
+        
+        {/* Date & English Version Switcher (Replaced ঢাকা সংস্করণ) */}
+        <div className="flex items-center gap-3 sm:gap-4">
+          <span className="font-bold text-gray-950 min-h-[16px]">{headerDate}</span>
+          <span className="text-gray-300">|</span>
+          
+          {/* User Request: ঢাকা সংস্করণ যেখানে লেখা আছে সেখানে দেবে English Version */}
+          <button
+            type="button"
+            onClick={() => onLanguageChange(isBn ? 'en' : 'bn')}
+            className="inline-flex items-center gap-1.5 font-bold text-gray-950 hover:text-red-700 transition-colors cursor-pointer group"
+            title={isBn ? 'Switch to English Version' : 'বাংলা ভার্সনে পরিবর্তন করুন'}
+          >
+            <span className="w-2 h-2 rounded-full bg-red-700 group-hover:scale-125 transition-transform"></span>
+            <span className="underline decoration-red-700/50 underline-offset-2">
+              {isBn ? 'English Version' : 'বাংলা সংস্করণ'}
+            </span>
+          </button>
         </div>
 
-        {/* Action Tools & Language Switcher */}
-        <div className="flex items-center gap-4">
+        {/* Action Tools: Weather, Search & Language Switcher */}
+        <div className="flex items-center gap-3 sm:gap-4">
           {/* Weather preview */}
-          <div className="hidden lg:flex items-center gap-1.5 text-gray-600">
+          <div className="hidden lg:flex items-center gap-1.5 text-gray-900 font-medium">
             <Sun className="w-3.5 h-3.5 text-amber-500" />
             <span>{isBn ? 'ঢাকা ২৮° সে.' : 'Dhaka 28°C'}</span>
           </div>
 
           <span className="hidden lg:inline-block text-gray-300">|</span>
 
-          {/* E-Paper Link placeholder */}
-          <button
-            type="button"
-            className="hidden sm:flex items-center gap-1 font-medium hover:text-red-700 transition-colors"
-          >
-            <BookOpen className="w-3.5 h-3.5 text-gray-500" />
-            <span>{isBn ? 'ই-পেপার' : 'ePaper'}</span>
-          </button>
-
-          {/* Quick Search Button */}
+          {/* Professional Search Button with Ctrl+K shortcut badge */}
           <button
             type="button"
             onClick={onOpenSearch}
-            className="flex items-center gap-1 text-gray-600 hover:text-red-700 font-medium transition-colors"
+            className="flex items-center gap-2 px-3 py-1 bg-white hover:bg-gray-100 border border-gray-300 rounded-full text-xs font-bold text-gray-950 transition-all shadow-2xs hover:border-gray-400 cursor-pointer"
           >
-            <Search className="w-3.5 h-3.5" />
-            <span>{isBn ? 'খুঁজুন' : 'Search'}</span>
+            <Search className="w-3.5 h-3.5 text-red-700" />
+            <span>{isBn ? 'অনুসন্ধান' : 'Search'}</span>
+            <kbd className="hidden sm:inline-block bg-gray-100 border border-gray-300 rounded px-1.5 py-0.2 text-[10px] text-gray-600 font-mono">
+              Ctrl K
+            </kbd>
           </button>
 
           <span className="text-gray-300">|</span>
 
-          {/* Language Switcher Button Toggle */}
-          <div className="inline-flex items-center rounded-full bg-gray-200/80 p-0.5">
+          {/* Direct Language Switcher Toggle */}
+          <div className="inline-flex items-center rounded-full bg-gray-200 p-0.5 shadow-2xs">
             <button
               type="button"
               onClick={() => onLanguageChange('bn')}
-              className={`px-2.5 py-0.5 rounded-full text-xs font-semibold transition-all ${
+              className={`px-3 py-0.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
                 isBn
-                  ? 'bg-[#052962] text-white shadow-xs'
-                  : 'text-gray-600 hover:text-gray-900'
+                  ? 'bg-red-700 text-white shadow-xs'
+                  : 'text-gray-800 hover:text-gray-950'
               }`}
             >
               বাংলা
@@ -83,16 +87,17 @@ export const TopBar: React.FC<TopBarProps> = ({
             <button
               type="button"
               onClick={() => onLanguageChange('en')}
-              className={`px-2.5 py-0.5 rounded-full text-xs font-semibold transition-all ${
+              className={`px-3 py-0.5 rounded-full text-xs font-bold transition-all cursor-pointer ${
                 !isBn
-                  ? 'bg-[#052962] text-white shadow-xs'
-                  : 'text-gray-600 hover:text-gray-900'
+                  ? 'bg-red-700 text-white shadow-xs'
+                  : 'text-gray-800 hover:text-gray-950'
               }`}
             >
               English
             </button>
           </div>
         </div>
+
       </div>
     </div>
   );

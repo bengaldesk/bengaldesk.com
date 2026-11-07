@@ -32,22 +32,16 @@ export const SpecialReportBanner: React.FC<SpecialReportBannerProps> = ({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Top Label */}
-        <div className="flex flex-wrap items-center justify-between gap-3 pb-3 mb-4 sm:mb-6 border-b border-white/15">
-          <div className="flex items-center gap-2.5 sm:gap-3">
-            <BrandLogo
-              variant="white"
-              className="w-32 sm:w-40 md:w-44 h-auto"
-              showTagline={false}
-              isBn={isBn}
-            />
-            <span className="text-white/30 text-sm font-light">|</span>
-            <span className="text-xs sm:text-sm font-black uppercase tracking-wider text-amber-300">
-              {isBn ? 'বিশেষ প্রতিবেদন' : 'Special Report'}
-            </span>
-          </div>
-          <span className="hidden sm:inline-flex items-center gap-1.5 text-xs text-blue-200">
-            <ShieldAlert className="w-3.5 h-3.5 text-blue-300" />
-            {isBn ? 'অনুসন্ধানী সাংবাদিকতা' : 'Investigative Journalism'}
+        <div className="flex items-center gap-2.5 sm:gap-3 pb-3 mb-4 sm:mb-6 border-b border-white/15">
+          <BrandLogo
+            variant="white"
+            className="w-32 sm:w-40 md:w-44 h-auto"
+            showTagline={false}
+            isBn={isBn}
+          />
+          <span className="text-white/30 text-sm font-light">|</span>
+          <span className="text-xs sm:text-sm font-black uppercase tracking-wider text-amber-300">
+            {isBn ? 'বিশেষ প্রতিবেদন' : 'Special Report'}
           </span>
         </div>
 

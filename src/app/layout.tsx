@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Noto_Serif_Bengali, Hind_Siliguri, Anek_Bangla, Inter } from "next/font/google";
 import { NewsProvider } from "@/context/NewsContext";
+import { AuthProvider } from "@/context/AuthContext";
 import "./globals.css";
 
 const notoSerifBengali = Noto_Serif_Bengali({
@@ -58,7 +59,9 @@ export default function RootLayout({
       className={`${notoSerifBengali.variable} ${hindSiliguri.variable} ${anekBangla.variable} ${inter.variable}`}
     >
       <body className="min-h-screen bg-white text-gray-900 bn-ui antialiased selection:bg-red-700 selection:text-white">
-        <NewsProvider>{children}</NewsProvider>
+        <NewsProvider>
+          <AuthProvider>{children}</AuthProvider>
+        </NewsProvider>
       </body>
     </html>
   );
